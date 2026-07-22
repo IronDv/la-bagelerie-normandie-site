@@ -59,20 +59,19 @@ const menuItems = {
 type Category = keyof typeof menuItems;
 
 const reviews = [
-  { name: "Sophie L.", rating: 5, text: "Les meilleurs bagels de Normandie ! Produits frais, accueil au top et une ambiance qu'on ne veut plus quitter." },
-  { name: "Julien M.", rating: 5, text: "Camille et Marie font un travail incroyable. Le bagel saumon est une tuerie, on y retourne chaque semaine." },
-  { name: "Aurélie P.", rating: 5, text: "Adresse coup de cœur à Étrépagny. Tout est fait maison, ça se sent. Merci pour la gentillesse !" },
-  { name: "Thomas B.", rating: 4, text: "Excellente formule midi, portion généreuse et de vraies saveurs. Le caramel beurre salé, une petite folie." },
+  { name: "Aurel Hi", rating: 5, text: "Découvert par hasard, ce lieu est une petite pépite. La patronne travaille avec des produits locaux, le tout dans une ambiance très cosy c'est le top." },
+  { name: "Jennifer Delrive", rating: 5, text: "Lieu très agréable et très joliment décoré. Nous y avons pris un petit goûter délicieux mais j'y retournerais pour y déjeuner. La carte donne l'eau à la bouche : du \"fait maison\" à des prix très raisonnables." },
+  { name: "Mad'Elfik", rating: 5, text: "Un lieu chaleureux, des produits frais et locaux cuisinés avec amour. Je vous invite vivement à découvrir cet endroit, que ce soit pour un repas aussi bon que sain ou un goûter aussi gourmand qu'healthy 👌😋" },
 ];
 
 const hours = [
   { day: "Lundi", time: "Fermé" },
-  { day: "Mardi", time: "9h00 – 15h00" },
-  { day: "Mercredi", time: "9h00 – 15h00" },
-  { day: "Jeudi", time: "9h00 – 15h00" },
-  { day: "Vendredi", time: "9h00 – 15h00 · 18h30 – 21h30" },
-  { day: "Samedi", time: "9h00 – 15h00 · 18h30 – 21h30" },
-  { day: "Dimanche", time: "10h00 – 14h00" },
+  { day: "Mardi", time: "11h30 – 14h00" },
+  { day: "Mercredi", time: "11h30 – 14h00" },
+  { day: "Jeudi", time: "11h30 – 14h00" },
+  { day: "Vendredi", time: "11h30 – 14h00 · 18h30 – 21h00" },
+  { day: "Samedi", time: "11h30 – 14h00 · 18h30 – 21h00" },
+  { day: "Dimanche", time: "Fermé" },
 ];
 
 function Index() {
