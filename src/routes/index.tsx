@@ -8,7 +8,7 @@ import {
   Star,
   UtensilsCrossed,
   ShoppingBag,
-  Bike,
+  Coffee,
   Menu as MenuIcon,
   X,
 } from "lucide-react";
@@ -199,7 +199,7 @@ function Index() {
             </div>
             <div className="absolute -bottom-6 left-4 hidden rounded-2xl border border-border bg-card px-5 py-4 shadow-lg md:block">
               <p className="font-display text-2xl text-terracotta">Ouvert aujourd'hui</p>
-              <p className="text-xs text-muted-foreground">Sur place · À emporter · Livraison</p>
+              <p className="text-xs text-muted-foreground">Sur place · À emporter</p>
             </div>
           </div>
         </div>
@@ -320,7 +320,7 @@ function Index() {
             </div>
           </div>
 
-          <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
             {reviews.map((r) => (
               <figure
                 key={r.name}
@@ -352,7 +352,7 @@ function Index() {
             {[
               { icon: UtensilsCrossed, title: "Sur place", desc: "Une petite salle cosy pour prendre le temps, entre amis ou en solo." },
               { icon: ShoppingBag, title: "À emporter", desc: "Passez commande par téléphone, on vous prépare tout, chaud et bien emballé." },
-              { icon: Bike, title: "Livraison", desc: "On livre à Étrépagny et alentours — parfait pour un déjeuner au bureau." },
+              { icon: Coffee, title: "Pause gourmande", desc: "Café, thé, pâtisseries maison — l'endroit parfait pour une pause douce." },
             ].map((s) => (
               <div key={s.title} className="rounded-3xl border border-border bg-card p-8 text-center">
                 <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-accent/40 text-primary">
