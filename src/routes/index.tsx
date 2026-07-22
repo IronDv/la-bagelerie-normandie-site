@@ -8,7 +8,7 @@ import {
   Star,
   UtensilsCrossed,
   ShoppingBag,
-  Bike,
+  Coffee,
   Menu as MenuIcon,
   X,
 } from "lucide-react";
@@ -59,20 +59,19 @@ const menuItems = {
 type Category = keyof typeof menuItems;
 
 const reviews = [
-  { name: "Sophie L.", rating: 5, text: "Les meilleurs bagels de Normandie ! Produits frais, accueil au top et une ambiance qu'on ne veut plus quitter." },
-  { name: "Julien M.", rating: 5, text: "Camille et Marie font un travail incroyable. Le bagel saumon est une tuerie, on y retourne chaque semaine." },
-  { name: "Aurélie P.", rating: 5, text: "Adresse coup de cœur à Étrépagny. Tout est fait maison, ça se sent. Merci pour la gentillesse !" },
-  { name: "Thomas B.", rating: 4, text: "Excellente formule midi, portion généreuse et de vraies saveurs. Le caramel beurre salé, une petite folie." },
+  { name: "Aurel Hi", rating: 5, text: "Découvert par hasard, ce lieu est une petite pépite. La patronne travaille avec des produits locaux, le tout dans une ambiance très cosy c'est le top." },
+  { name: "Jennifer Delrive", rating: 5, text: "Lieu très agréable et très joliment décoré. Nous y avons pris un petit goûter délicieux mais j'y retournerais pour y déjeuner. La carte donne l'eau à la bouche : du \"fait maison\" à des prix très raisonnables." },
+  { name: "Mad'Elfik", rating: 5, text: "Un lieu chaleureux, des produits frais et locaux cuisinés avec amour. Je vous invite vivement à découvrir cet endroit, que ce soit pour un repas aussi bon que sain ou un goûter aussi gourmand qu'healthy 👌😋" },
 ];
 
 const hours = [
   { day: "Lundi", time: "Fermé" },
-  { day: "Mardi", time: "9h00 – 15h00" },
-  { day: "Mercredi", time: "9h00 – 15h00" },
-  { day: "Jeudi", time: "9h00 – 15h00" },
-  { day: "Vendredi", time: "9h00 – 15h00 · 18h30 – 21h30" },
-  { day: "Samedi", time: "9h00 – 15h00 · 18h30 – 21h30" },
-  { day: "Dimanche", time: "10h00 – 14h00" },
+  { day: "Mardi", time: "11h30 – 14h00" },
+  { day: "Mercredi", time: "11h30 – 14h00" },
+  { day: "Jeudi", time: "11h30 – 14h00" },
+  { day: "Vendredi", time: "11h30 – 14h00 · 18h30 – 21h00" },
+  { day: "Samedi", time: "11h30 – 14h00 · 18h30 – 21h00" },
+  { day: "Dimanche", time: "Fermé" },
 ];
 
 function Index() {
@@ -200,7 +199,7 @@ function Index() {
             </div>
             <div className="absolute -bottom-6 left-4 hidden rounded-2xl border border-border bg-card px-5 py-4 shadow-lg md:block">
               <p className="font-display text-2xl text-terracotta">Ouvert aujourd'hui</p>
-              <p className="text-xs text-muted-foreground">Sur place · À emporter · Livraison</p>
+              <p className="text-xs text-muted-foreground">Sur place · À emporter</p>
             </div>
           </div>
         </div>
@@ -321,7 +320,7 @@ function Index() {
             </div>
           </div>
 
-          <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
             {reviews.map((r) => (
               <figure
                 key={r.name}
@@ -353,7 +352,7 @@ function Index() {
             {[
               { icon: UtensilsCrossed, title: "Sur place", desc: "Une petite salle cosy pour prendre le temps, entre amis ou en solo." },
               { icon: ShoppingBag, title: "À emporter", desc: "Passez commande par téléphone, on vous prépare tout, chaud et bien emballé." },
-              { icon: Bike, title: "Livraison", desc: "On livre à Étrépagny et alentours — parfait pour un déjeuner au bureau." },
+              { icon: Coffee, title: "Pause gourmande", desc: "Café, thé, pâtisseries maison — l'endroit parfait pour une pause douce." },
             ].map((s) => (
               <div key={s.title} className="rounded-3xl border border-border bg-card p-8 text-center">
                 <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-accent/40 text-primary">
