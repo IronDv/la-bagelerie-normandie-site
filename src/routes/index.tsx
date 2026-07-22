@@ -419,7 +419,6 @@ function Index() {
                 />
               </div>
 
-              <ContactForm />
             </div>
           </div>
         </div>
@@ -564,46 +563,3 @@ function InstagramFeed() {
   );
 }
 
-function ContactForm() {
-  const [sent, setSent] = useState(false);
-  return (
-    <form
-      onSubmit={(e) => {
-        e.preventDefault();
-        setSent(true);
-      }}
-      className="mt-6 rounded-3xl border border-border bg-card p-6 md:p-8"
-    >
-      <h3 className="text-2xl">Une question ? Un événement ?</h3>
-      <p className="mt-1 text-sm text-muted-foreground">
-        Écrivez-nous, on répond vite (entre deux fournées).
-      </p>
-      {sent ? (
-        <p className="mt-6 rounded-xl bg-sage/20 px-4 py-3 text-sm text-foreground">
-          Merci, votre message est bien parti&nbsp;! On vous répond très vite. 🥯
-        </p>
-      ) : (
-        <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2">
-          <label className="flex flex-col gap-1 text-sm">
-            <span className="font-medium">Nom</span>
-            <input required className="rounded-xl border border-border bg-background px-4 py-3 text-sm outline-none focus:border-primary" />
-          </label>
-          <label className="flex flex-col gap-1 text-sm">
-            <span className="font-medium">Email</span>
-            <input type="email" required className="rounded-xl border border-border bg-background px-4 py-3 text-sm outline-none focus:border-primary" />
-          </label>
-          <label className="flex flex-col gap-1 text-sm md:col-span-2">
-            <span className="font-medium">Message</span>
-            <textarea required rows={4} className="rounded-xl border border-border bg-background px-4 py-3 text-sm outline-none focus:border-primary" />
-          </label>
-          <button
-            type="submit"
-            className="md:col-span-2 inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition hover:bg-primary/90"
-          >
-            Envoyer le message
-          </button>
-        </div>
-      )}
-    </form>
-  );
-}
