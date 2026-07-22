@@ -83,6 +83,7 @@ function Index() {
     { href: "#menu", label: "Menu" },
     { href: "#histoire", label: "À propos" },
     { href: "#avis", label: "Avis" },
+    { href: "#instagram", label: "Instagram" },
     { href: "#contact", label: "Contact" },
   ];
 
