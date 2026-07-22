@@ -368,6 +368,9 @@ function Index() {
       </section>
 
       {/* Contact */}
+      <InstagramFeed />
+
+      {/* Contact */}
       <section id="contact" className="bg-secondary/50 py-20 md:py-28">
         <div className="mx-auto max-w-6xl px-4 md:px-8">
           <div className="grid grid-cols-1 gap-10 lg:grid-cols-5">
