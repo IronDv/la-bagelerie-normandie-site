@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   Phone,
   MapPin,
@@ -83,6 +83,7 @@ function Index() {
     { href: "#menu", label: "Menu" },
     { href: "#histoire", label: "À propos" },
     { href: "#avis", label: "Avis" },
+    { href: "#instagram", label: "Instagram" },
     { href: "#contact", label: "Contact" },
   ];
 
@@ -367,6 +368,9 @@ function Index() {
       </section>
 
       {/* Contact */}
+      <InstagramFeed />
+
+      {/* Contact */}
       <section id="contact" className="bg-secondary/50 py-20 md:py-28">
         <div className="mx-auto max-w-6xl px-4 md:px-8">
           <div className="grid grid-cols-1 gap-10 lg:grid-cols-5">
@@ -466,6 +470,98 @@ function Index() {
       {/* Preload image for offscreen use */}
       <img src={interior} alt="" className="hidden" aria-hidden />
     </div>
+  );
+}
+
+// Behold.so widget ID for the live Instagram feed.
+// Create a free feed at https://behold.so/ for @labageleriedecamillebymarie,
+// then paste the feed ID here to activate the live grid.
+const BEHOLD_FEED_ID = "";
+
+function InstagramFeed() {
+  const ref = useRef<HTMLDivElement>(null);
+  const [live, setLive] = useState(false);
+
+  useEffect(() => {
+    if (!BEHOLD_FEED_ID) return;
+    const existing = document.querySelector<HTMLScriptElement>(
+      'script[data-behold-widget-loader]',
+    );
+    if (!existing) {
+      const s = document.createElement("script");
+      s.src = "https://w.behold.so/widget.js";
+      s.type = "module";
+      s.dataset.beholdWidgetLoader = "true";
+      document.head.appendChild(s);
+    }
+    const t = window.setTimeout(() => {
+      const node = ref.current?.querySelector("behold-widget");
+      if (node && node.shadowRoot && node.shadowRoot.childElementCount > 0) {
+        setLive(true);
+      }
+    }, 1500);
+    return () => window.clearTimeout(t);
+  }, []);
+
+  const fallback = [bagelSalmon, bagelChicken, bagelSweet, drinks, interior, storyImg];
+
+  return (
+    <section id="instagram" className="bg-background py-20 md:py-28">
+      <div className="mx-auto max-w-6xl px-4 md:px-8">
+        <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
+          <div>
+            <p className="text-sm uppercase tracking-[0.25em] text-terracotta">Le fil du fournil</p>
+            <h2 className="mt-3 text-4xl md:text-5xl">
+              Sur <span className="font-display text-terracotta">Instagram</span>
+            </h2>
+            <p className="mt-3 max-w-xl text-muted-foreground">
+              Nouvelles recettes, coulisses des fournées, événements&nbsp;: retrouvez toute la vie
+              de la Bagelerie en direct sur notre compte.
+            </p>
+          </div>
+          <a
+            href={INSTAGRAM}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 rounded-full border border-terracotta px-5 py-3 text-sm font-semibold text-terracotta transition hover:bg-terracotta hover:text-primary-foreground"
+          >
+            <Instagram className="h-4 w-4" /> @labageleriedecamillebymarie
+          </a>
+        </div>
+
+        <div ref={ref} className="mt-10">
+          {BEHOLD_FEED_ID ? (
+            // @ts-expect-error — behold-widget is a custom element from the Behold widget script
+            <behold-widget feed-id={BEHOLD_FEED_ID} />
+          ) : null}
+
+          {!live && (
+            <div className="grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-4">
+              {fallback.map((src, i) => (
+                <a
+                  key={i}
+                  href={INSTAGRAM}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group relative block aspect-square overflow-hidden rounded-2xl border border-border"
+                  aria-label="Voir sur Instagram"
+                >
+                  <img
+                    src={src}
+                    alt="Publication Instagram La Bagelerie"
+                    loading="lazy"
+                    className="h-full w-full object-cover transition duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center bg-primary/0 opacity-0 transition group-hover:bg-primary/60 group-hover:opacity-100">
+                    <Instagram className="h-8 w-8 text-primary-foreground" />
+                  </div>
+                </a>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+    </section>
   );
 }
 
